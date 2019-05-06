@@ -15,6 +15,7 @@ App.conversation = App.cable.subscriptions.create("ConversationChannel", {
         }
         console.log(data)
         conversation.find('.messages-list').find('ul').append(data['message']);
+        eval(data['funct'])
       }
       else {
         $('#conversations-list').append(data['window']);
@@ -26,6 +27,9 @@ App.conversation = App.cable.subscriptions.create("ConversationChannel", {
       console.log(data)
 
       conversation.find('ul').append(data['message']);
+      eval(data['funct'])
+
+      // conversation.find('ul').append(data['funct']);
 
     }
 
@@ -33,7 +37,7 @@ App.conversation = App.cable.subscriptions.create("ConversationChannel", {
     var height = messages_list[0].scrollHeight;
     messages_list.scrollTop(height);
   },
-  speak: function (message, funct = "321") {
+  speak: function (message, funct = "alert('3333')") {
     return this.perform('speak', {
       message: message,
       funct: funct

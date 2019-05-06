@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_05_122551) do
+ActiveRecord::Schema.define(version: 2019_05_06_193941) do
 
   create_table "conversations", force: :cascade do |t|
     t.integer "recipient_id"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2019_05_05_122551) do
     t.integer "conversation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "funct"
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
