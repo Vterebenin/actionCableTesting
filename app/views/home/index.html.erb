@@ -23,7 +23,16 @@
   </div>
 
 
-  <button id="damage_button">
-    Cast your function!
+  <button id="duel_button">
+    Find duel
   </button>
+  <%= link_to 'FIND DUEL', '#', :onclick => 'sum_fn()' %>
+  <%= javascript_tag do %>
+      function sum_fn() {
+          /* Assuming you have jQuery */
+          $.post('/', function(data) {
+
+          });
+      }
+  <% end %>
 </div>
